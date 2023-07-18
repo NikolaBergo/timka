@@ -58,47 +58,48 @@ class specialization:
     def printRealRating(self):
         j = 1
         for item in self.abiturList:
-            if item.specToSum[self.name][1] == 1:
-                print("{:5}/{} {:10} {:40}".format(j, self.capacity, item.specToSum[self.name][0], item.id))
+            if item.specToPriority[self.name] == 1:
+                print("{:5}/{} {:10} {:40}".format(j, self.capacity, item.specToSum[self.name], item.id))
                 j += 1
             elif item.passedSomewhereElse(self.name):
-                print("{:8} {:10} {:40}".format("---", item.specToSum[self.name][0], item.id))
+                print("{:8} {:10} {:40}".format("---", item.specToSum[self.name], item.id))
             else:
-                print("{:5}/{} {:10} {:40}".format(j, self.capacity, item.specToSum[self.name][0], item.id))
+                print("{:5}/{} {:10} {:40}".format(j, self.capacity, item.specToSum[self.name], item.id))
                 j += 1
             
             
 
 specializationList = []
 idToAbiturMap = {}
-#specializationList.append(specialization('Гидрометеорология', 16, 'https://www.timacad.ru/abitur/prikaz/spiski/000000001_05.03.04_OFO_OO_2023_B.html'))
+
+specializationList.append(specialization('Гидрометеорология', 16, 'https://www.timacad.ru/abitur/prikaz/spiski/000000001_05.03.04_OFO_OO_2023_B.html'))
 specializationList.append(specialization('Биология', 55, "https://www.timacad.ru/abitur/prikaz/spiski/000000001_06.03.01_OFO_OO_2023_B.html"))
-#specializationList.append(specialization('Строительство', 51, 'https://www.timacad.ru/abitur/prikaz/spiski/000000001_08.03.01_OFO_OO_2023_B.html'))
-#specializationList.append(specialization('Информационные системы', 58, 'https://www.timacad.ru/abitur/prikaz/spiski/000000001_09.03.02_OFO_OO_2023_B.html'))
-#specializationList.append(specialization('Прикладная информатика', 63, 'https://www.timacad.ru/abitur/prikaz/spiski/000000001_09.03.03_OFO_OO_2023_B.html'))
-#specializationList.append(specialization('Теплоэнергетика', 18, 'https://www.timacad.ru/abitur/prikaz/spiski/000000001_13.03.01_OFO_OO_2023_B.html'))
-#specializationList.append(specialization('Электроэнергетика', 36, 'https://www.timacad.ru/abitur/prikaz/spiski/000000001_13.03.02_OFO_OO_2023_B.html'))
-#specializationList.append(specialization('Технологические машины', 16, 'https://www.timacad.ru/abitur/prikaz/spiski/000000001_15.03.02_OFO_OO_2023_B.html'))
-#specializationList.append(specialization('Биотехнология', 63, 'https://www.timacad.ru/abitur/prikaz/spiski/000000001_19.03.01_OFO_OO_2023_B.html'))
-#specializationList.append(specialization('Продукты питания растительные', 21, 'https://www.timacad.ru/abitur/prikaz/spiski/000000001_19.03.02_OFO_OO_2023_B.html'))
-#specializationList.append(specialization('Продукты питания животные', 21, 'https://www.timacad.ru/abitur/prikaz/spiski/000000001_19.03.03_OFO_OO_2023_B.html'))
-#specializationList.append(specialization('Техносферная безопасность', 35, 'https://www.timacad.ru/abitur/prikaz/spiski/000000001_20.03.01_OFO_OO_2023_B.html'))
-#specializationList.append(specialization('Природообустройство и вода', 35, 'https://www.timacad.ru/abitur/prikaz/spiski/000000001_20.03.02_OFO_OO_2023_B.html'))
-#specializationList.append(specialization('Землеустройство и кадастры', 16, 'https://www.timacad.ru/abitur/prikaz/spiski/000000001_21.03.02_OFO_OO_2023_B.html'))
-#specializationList.append(specialization('Технология транспортных процессов', 16, 'https://www.timacad.ru/abitur/prikaz/spiski/000000001_23.03.01_OFO_OO_2023_B.html'))
-#specializationList.append(specialization('Эксплуатация ... машин', 42, 'https://www.timacad.ru/abitur/prikaz/spiski/000000001_23.03.03_OFO_OO_2023_B.html'))
-#specializationList.append(specialization('Лесное дело', 15, 'https://www.timacad.ru/abitur/prikaz/spiski/000000001_35.03.01_OFO_OO_2023_B.html'))
-#specializationList.append(specialization('Агрохимия и агропочвоведение', 32, 'https://www.timacad.ru/abitur/prikaz/spiski/000000001_35.03.03_OFO_OO_2023_B.html'))
-#specializationList.append(specialization('Агрономия', 74, 'https://www.timacad.ru/abitur/prikaz/spiski/000000001_35.03.04_OFO_OO_2023_B.html'))
-#specializationList.append(specialization('Садоводство', 70, 'https://www.timacad.ru/abitur/prikaz/spiski/000000001_35.03.05_OFO_OO_2023_B.html'))
-#specializationList.append(specialization('Агроинженерия', 82, 'https://www.timacad.ru/abitur/prikaz/spiski/000000001_35.03.06_OFO_OO_2023_B.html'))
-#specializationList.append(specialization('Технология пр-ва сх продукции', 39, 'https://www.timacad.ru/abitur/prikaz/spiski/000000001_35.03.07_OFO_OO_2023_B.html'))
-#specializationList.append(specialization('Ландшафтная архитектура', 70, 'https://www.timacad.ru/abitur/prikaz/spiski/000000001_35.03.10_OFO_OO_2023_B.html'))
-#specializationList.append(specialization('Гидромелиорация', 13, 'https://www.timacad.ru/abitur/prikaz/spiski/000000001_35.03.11_OFO_OO_2023_B.html'))
-#specializationList.append(specialization('Ветеринарная экспертиза', 30, 'https://www.timacad.ru/abitur/prikaz/spiski/000000001_36.03.01_OFO_OO_2023_B.html'))
-#specializationList.append(specialization('Зоотехния', 32, 'https://www.timacad.ru/abitur/prikaz/spiski/000000001_36.03.02_OFO_OO_2023_B.html'))
-#specializationList.append(specialization('Туризм', 16, 'https://www.timacad.ru/abitur/prikaz/spiski/000000001_43.03.02_OFO_OO_2023_B.html'))
-#specializationList.append(specialization('Профессиональное обучение', 44, 'https://www.timacad.ru/abitur/prikaz/spiski/000000001_44.03.04_OFO_OO_2023_B.html'))
+specializationList.append(specialization('Строительство', 51, 'https://www.timacad.ru/abitur/prikaz/spiski/000000001_08.03.01_OFO_OO_2023_B.html'))
+specializationList.append(specialization('Информационные системы', 58, 'https://www.timacad.ru/abitur/prikaz/spiski/000000001_09.03.02_OFO_OO_2023_B.html'))
+specializationList.append(specialization('Прикладная информатика', 63, 'https://www.timacad.ru/abitur/prikaz/spiski/000000001_09.03.03_OFO_OO_2023_B.html'))
+specializationList.append(specialization('Теплоэнергетика', 18, 'https://www.timacad.ru/abitur/prikaz/spiski/000000001_13.03.01_OFO_OO_2023_B.html'))
+specializationList.append(specialization('Электроэнергетика', 36, 'https://www.timacad.ru/abitur/prikaz/spiski/000000001_13.03.02_OFO_OO_2023_B.html'))
+specializationList.append(specialization('Технологические машины', 16, 'https://www.timacad.ru/abitur/prikaz/spiski/000000001_15.03.02_OFO_OO_2023_B.html'))
+specializationList.append(specialization('Биотехнология', 63, 'https://www.timacad.ru/abitur/prikaz/spiski/000000001_19.03.01_OFO_OO_2023_B.html'))
+specializationList.append(specialization('Продукты питания растительные', 21, 'https://www.timacad.ru/abitur/prikaz/spiski/000000001_19.03.02_OFO_OO_2023_B.html'))
+specializationList.append(specialization('Продукты питания животные', 21, 'https://www.timacad.ru/abitur/prikaz/spiski/000000001_19.03.03_OFO_OO_2023_B.html'))
+specializationList.append(specialization('Техносферная безопасность', 35, 'https://www.timacad.ru/abitur/prikaz/spiski/000000001_20.03.01_OFO_OO_2023_B.html'))
+specializationList.append(specialization('Природообустройство и вода', 35, 'https://www.timacad.ru/abitur/prikaz/spiski/000000001_20.03.02_OFO_OO_2023_B.html'))
+specializationList.append(specialization('Землеустройство и кадастры', 16, 'https://www.timacad.ru/abitur/prikaz/spiski/000000001_21.03.02_OFO_OO_2023_B.html'))
+specializationList.append(specialization('Технология транспортных процессов', 16, 'https://www.timacad.ru/abitur/prikaz/spiski/000000001_23.03.01_OFO_OO_2023_B.html'))
+specializationList.append(specialization('Эксплуатация ... машин', 42, 'https://www.timacad.ru/abitur/prikaz/spiski/000000001_23.03.03_OFO_OO_2023_B.html'))
+specializationList.append(specialization('Лесное дело', 15, 'https://www.timacad.ru/abitur/prikaz/spiski/000000001_35.03.01_OFO_OO_2023_B.html'))
+specializationList.append(specialization('Агрохимия и агропочвоведение', 32, 'https://www.timacad.ru/abitur/prikaz/spiski/000000001_35.03.03_OFO_OO_2023_B.html'))
+specializationList.append(specialization('Агрономия', 74, 'https://www.timacad.ru/abitur/prikaz/spiski/000000001_35.03.04_OFO_OO_2023_B.html'))
+specializationList.append(specialization('Садоводство', 70, 'https://www.timacad.ru/abitur/prikaz/spiski/000000001_35.03.05_OFO_OO_2023_B.html'))
+specializationList.append(specialization('Агроинженерия', 82, 'https://www.timacad.ru/abitur/prikaz/spiski/000000001_35.03.06_OFO_OO_2023_B.html'))
+specializationList.append(specialization('Технология пр-ва сх продукции', 39, 'https://www.timacad.ru/abitur/prikaz/spiski/000000001_35.03.07_OFO_OO_2023_B.html'))
+specializationList.append(specialization('Ландшафтная архитектура', 70, 'https://www.timacad.ru/abitur/prikaz/spiski/000000001_35.03.10_OFO_OO_2023_B.html'))
+specializationList.append(specialization('Гидромелиорация', 13, 'https://www.timacad.ru/abitur/prikaz/spiski/000000001_35.03.11_OFO_OO_2023_B.html'))
+specializationList.append(specialization('Ветеринарная экспертиза', 30, 'https://www.timacad.ru/abitur/prikaz/spiski/000000001_36.03.01_OFO_OO_2023_B.html'))
+specializationList.append(specialization('Зоотехния', 32, 'https://www.timacad.ru/abitur/prikaz/spiski/000000001_36.03.02_OFO_OO_2023_B.html'))
+specializationList.append(specialization('Туризм', 16, 'https://www.timacad.ru/abitur/prikaz/spiski/000000001_43.03.02_OFO_OO_2023_B.html'))
+specializationList.append(specialization('Профессиональное обучение', 44, 'https://www.timacad.ru/abitur/prikaz/spiski/000000001_44.03.04_OFO_OO_2023_B.html'))
 
 # you can implement your analogue here
 def parseAbiturs():
@@ -136,12 +137,14 @@ for curSpec in specializationList:
         new_id = table[i]
         i += 1
         sum = int(table[i])
-        if sum < 200 and sum != 0:
+        if sum < 200 and sum > 10:
             break
 
         # now i points to 'Оригинал' or 'Копия'
         i += (numOfSubjects + 3)
-        if idNum < 100 and sum == 0:
+
+        # Fucking BVI has 0 to 10 points
+        if idNum < 50 and sum >= 0 and sum <= 10:
             sum = 310
             i -= numOfSubjects
 
@@ -167,12 +170,14 @@ for curSpec in specializationList:
 for curSpec in specializationList:
     curSpec.formRating()
 
-#for curSpec in specializationList:
-#    print('==================================')
-#    print('           ', curSpec.name)
-#    print('\n')
-#    curSpec.printRealRating()
+# Print each specializatioon rating
+for curSpec in specializationList:
+    print('==================================')
+    print('           ', curSpec.name)
+    print('\n')
+    curSpec.printRealRating()
 
+# Print each abitur info
 for item in idToAbiturMap:
     idToAbiturMap[item].print()
     print('-----------------------------')
